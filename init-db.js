@@ -1,11 +1,10 @@
 const mysql = require("mysql2");
 
-// Tạo cấu hình kết nối đến MySQL
 const pool = mysql.createPool({
-  host: "localhost", // Thường là localhost
-  user: "root", // Username mặc định của MySQL
-  password: "Thequang123@", // Mật khẩu MySQL của bạn (nếu không có thì để trống '')
-  database: "blogweb", // Tên database bạn vừa tạo ở file SQL
+  host: "localhost",
+  user: "root",
+  password: "Thequang123@",
+  database: "blogweb",
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -18,7 +17,7 @@ pool.getConnection((err, connection) => {
     console.error(" Kết nối Database thất bại:", err.message);
   } else {
     console.log(" Kết nối Database thành công!");
-    connection.release(); // Trả lại kết nối vào pool
+    connection.release();
   }
 });
 
