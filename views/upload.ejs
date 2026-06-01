@@ -1,0 +1,24 @@
+<%- include('partials/header', { title: 'Đăng tải' }) %>
+
+<div class="container section">
+  <div class="form-container">
+    <% if (error) { %>
+      <div class="alert alert-error"><%= error %></div>
+    <% } %>
+    <% if (success) { %>
+      <div class="alert alert-success"><%= success %></div>
+    <% } %>
+
+    <form action="/upload" method="POST" class="upload-form">
+      <div class="form-group">
+        <label for="title">Tiêu đề Blog *</label>
+        <input type="text" id="title" name="title" required placeholder="VD: A Beautiful day">
+      </div>
+      <div class="form-group">
+        <label for="description">Mô tả</label>
+        <textarea id="description" name="description" rows="4" placeholder="Mô tả nội dung Blog..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg">⬆ Tải lên</button>
+    </form>
+  </div>
+</div>
